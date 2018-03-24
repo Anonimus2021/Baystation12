@@ -63,7 +63,7 @@
 	breath_type = null
 	poison_type = null
 
-
+	allow_vision_cone = 0
 	vision_flags = SEE_SELF|SEE_MOBS
 
 	has_organ = list(

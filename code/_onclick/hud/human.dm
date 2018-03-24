@@ -39,6 +39,16 @@
 	mymob.noise.alpha = target.isSynthetic() || E && E.robotic >= ORGAN_ROBOT ? 255 : 0
 	hud_elements |= mymob.noise
 
+	if(target.can_have_vision_cone)
+		target.vision_cone_overlay = new /obj/screen()
+		target.vision_cone_overlay.icon = 'icons/mob/hide.dmi'
+		target.vision_cone_overlay.icon_state = "combat"
+		target.vision_cone_overlay.name = ""
+		target.vision_cone_overlay.screen_loc = "1,1"
+		target.vision_cone_overlay.mouse_opacity = 0
+		target.vision_cone_overlay.layer = UNDER_HUD_LAYER
+		src.adding += target.vision_cone_overlay
+
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear
 	for(var/gear_slot in hud_data.gear)

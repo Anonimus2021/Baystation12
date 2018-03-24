@@ -86,7 +86,7 @@
 	var/flash_mod =      1                    // Stun from blindness modifier.
 	var/metabolism_mod = 1                    // Reagent metabolism modifier
 	var/vision_flags = SEE_SELF               // Same flags as glasses.
-
+	var/allow_vision_cone = 1
 
 	// Death vars.
 	var/meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/human
@@ -342,6 +342,7 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 	H.mob_swap_flags = swap_flags
 	H.mob_push_flags = push_flags
 	H.pass_flags = pass_flags
+	H.can_have_vision_cone = allow_vision_cone
 
 /datum/species/proc/handle_pre_spawn(var/mob/living/carbon/human/H)
 	return

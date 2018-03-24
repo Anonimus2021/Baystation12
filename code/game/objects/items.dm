@@ -663,6 +663,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				user.client.pixel_y = 0
 
 		user.visible_message("\The [user] peers through the [zoomdevicename ? "[zoomdevicename] of [src]" : "[src]"].")
+		H.SetFov(0)
 	else
 		user.client.view = world.view
 		if(!user.hud_used.hud_shown)
@@ -674,6 +675,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 		if(!cannotzoom)
 			user.visible_message("[zoomdevicename ? "\The [user] looks up from [src]" : "\The [user] lowers [src]"].")
+			H.SetFov(1)
 	return
 
 /obj/item/proc/pwr_drain()
