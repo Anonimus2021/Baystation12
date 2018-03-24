@@ -83,8 +83,7 @@
 				I.override = 0
 
 			if(istype(src.pulling, /obj/structure/bed))
-				var/obj/structure/bed/B = src.pulling
-				for(M in B.buckled_mob)
+				if(locate(/obj/structure/bed) in M.loc)
 					I.override = 0
 
 		M.in_vision_cones[src] = 1
@@ -136,11 +135,11 @@
 		src.vision_cone = 0
 
 /mob/living/Initialize()
+	. = ..()
 	if(can_have_vision_cone)
 		vision_cone = 1
 		GLOB.dir_set_event.register(src, src, /mob/proc/update_vision_cone)
 		GLOB.moved_event.register(src, src, /mob/proc/update_vision_cone)
-	. = ..()
 
 /mob/living/Destroy()
 	if(vision_cone)
