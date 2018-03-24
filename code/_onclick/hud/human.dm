@@ -44,10 +44,11 @@
 		target.vision_cone_overlay.icon = 'icons/mob/hide.dmi'
 		target.vision_cone_overlay.icon_state = "combat"
 		target.vision_cone_overlay.name = ""
+		target.vision_cone_overlay.dir = target.facing_dir ? target.facing_dir : target.dir
 		target.vision_cone_overlay.screen_loc = "1,1"
 		target.vision_cone_overlay.mouse_opacity = 0
 		target.vision_cone_overlay.layer = UNDER_HUD_LAYER
-		hud_elements |= target.vision_cone_overlay
+		src.adding += target.vision_cone_overlay
 
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear

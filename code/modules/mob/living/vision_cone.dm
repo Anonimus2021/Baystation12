@@ -70,7 +70,7 @@
 	if(!vision_cone || vision_cone_overlay.alpha != 255)
 		return
 
-	src.vision_cone_overlay.dir = src.dir
+	src.vision_cone_overlay.dir = facing_dir ? facing_dir : src.dir
 
 	for(var/mob/living/M in cone(src, OPPOSITE_DIR(src.dir), view(world.view, src)))
 		I = image("split", M)

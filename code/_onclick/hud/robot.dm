@@ -57,6 +57,7 @@ var/obj/screen/robot_inventory
 		r.vision_cone_overlay.icon = 'icons/mob/hide.dmi'
 		r.vision_cone_overlay.icon_state = "combat"
 		r.vision_cone_overlay.name = ""
+		r.vision_cone_overlay.dir = r.facing_dir ? r.facing_dir : r.dir
 		r.vision_cone_overlay.screen_loc = "1,1"
 		r.vision_cone_overlay.mouse_opacity = 0
 		r.vision_cone_overlay.layer = UNDER_HUD_LAYER
