@@ -58,8 +58,6 @@
 		return
 
 	var/image/I
-	var/mob/living/M
-
 	for(I in src.hidden_atoms)
 		I.override = 0
 		addtimer(CALLBACK(src, .proc/clear_vision_effect, src.client, I), 10)
@@ -74,7 +72,7 @@
 
 	src.vision_cone_overlay.dir = src.dir
 
-	for(M in cone(src, OPPOSITE_DIR(src.dir), view(world.view, src)))
+	for(var/mob/living/M in cone(src, OPPOSITE_DIR(src.dir), view(world.view, src)))
 		I = image("split", M)
 		I.override = 1
 		src.client.images += I
