@@ -47,7 +47,7 @@
 		target.vision_cone_overlay.screen_loc = "1,1"
 		target.vision_cone_overlay.mouse_opacity = 0
 		target.vision_cone_overlay.layer = UNDER_HUD_LAYER
-		src.adding += target.vision_cone_overlay
+		hud_elements |= target.vision_cone_overlay
 
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear

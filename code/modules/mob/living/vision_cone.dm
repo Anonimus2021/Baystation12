@@ -9,7 +9,7 @@
 
 #define OPPOSITE_DIR(D) turn(D, 180)
 
-/mob/living
+/mob
 	var/list/hidden_atoms = list()
 	var/list/hidden_mobs = list()
 	var/list/in_vision_cones = list()
@@ -146,6 +146,7 @@
 
 /mob/living/Destroy()
 	if(vision_cone)
+		vision_cone = 0
 		GLOB.dir_set_event.unregister(src, src, /mob/proc/update_vision_cone)
 		GLOB.moved_event.unregister(src, src, /mob/proc/update_vision_cone)
 	. = ..()
@@ -162,4 +163,4 @@
 	. = ..()
 
 /mob/living/is_invisible_to(var/mob/viewer)
-	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || src in (viewer.hidden_mobs || viewer.hidden_atoms))
+	return (src in (viewer.hidden_mobs || viewer.hidden_atoms) || ..())
